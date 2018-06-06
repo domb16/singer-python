@@ -40,8 +40,9 @@ def strptime_to_utc(dtimestr):
 def strftime(dtime, format_str=DATETIME_FMT):
     if dtime.utcoffset() != datetime.timedelta(0):
         raise Exception("datetime must be pegged at UTC tzoneinfo")
-    dt_str = dtime.strftime(format_str)
-    if dt_str.startswith('4Y'):
+    try:
+        dt_str = dtime.strftime(format_str)
+    except ValueError as ex:
         dt_str = dtime.strftime(DATETIME_FMT_MAC)
     return dt_str
 
