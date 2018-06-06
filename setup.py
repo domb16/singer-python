@@ -3,7 +3,7 @@
 from setuptools import setup, find_packages
 import subprocess
 
-setup(name="singer-python",
+setup(name="singer-python-datetime",
       version='5.1.5',
       description="Singer.io utility library",
       author="Stitch",
